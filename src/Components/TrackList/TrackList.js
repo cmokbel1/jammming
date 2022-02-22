@@ -7,9 +7,9 @@ export class TrackList extends React.Component {
   render() {
     return (
       <div className="TrackList">
-        The Beatles - Hey Jude 
-        Linkin Park - Hands Held High 
-        The Killers - When You Were Young 
+        {this.props.tracks.map(track => {
+          return <Track key={track.id} track={track}/>
+        })}
       </div>
     )
   }
