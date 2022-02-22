@@ -19,12 +19,15 @@ class App extends React.Component {
   }
 
   addTrack(track) {
-    if (this.state.playlistTracks.find(savedTrack => savedTrack.id === track.id)) {
+    let tracks = this.state.playlistTracks;
+    if (tracks.find(savedTrack => savedTrack.id === track.id)) {
       return;
-    } 
+    } else {
+      tracks.push(track)
+      this.setState({ playlistTracks: tracks })
+    }
 
-      this.playlistTracks.push(track)
-      this.setState({playlistTracks: this.playlistTracks})
+
 
   }
 
