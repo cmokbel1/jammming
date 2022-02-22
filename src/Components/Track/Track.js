@@ -14,9 +14,9 @@ export default class Track extends React.Component {
   
   renderAction() {
     if (this.props.isRemoval) {
-      <button className="Track-action">-</button>
+      return <button className="Track-action">-</button>
     } else {
-      <button className = "Track-action">+</button>
+      return <button className = "Track-action" onClick={this.addTrack}>+</button>
     }
   }
   
@@ -27,7 +27,7 @@ export default class Track extends React.Component {
           <h3>{this.props.track.name}</h3>
           <p>{this.props.track.artist}| {this.props.track.album}</p>
         </div>
-        <button className="Track-action">{this.renderAction()}</button>
+        {this.renderAction()}
       </div>
     )
   }
