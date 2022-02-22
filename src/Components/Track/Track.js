@@ -2,12 +2,20 @@ import { render } from '@testing-library/react';
 import React from 'react';
 import './Track.css';
 
-export class Track extends React.Component {
-  renderAction() {
+export default class Track extends React.Component {
+  constructor(props) {
+    super(props)
+    this.addTrack = this.addTrack.bind(this)
 
-    if (isRemoval) {
+  }
+  addTrack() {
+    this.props.onAdd(this.props.track)
+  }
+  
+  renderAction() {
+    if (this.props.isRemoval) {
       <button className="Track-action">-</button>
-    } else if (!isRemoval) {
+    } else {
       <button className = "Track-action">+</button>
     }
   }
@@ -16,8 +24,8 @@ export class Track extends React.Component {
     return (
       <div className="Track">
         <div className="Track-information">
-          <h3>{this.props.name}}</h3>
-          <p>{this.props.artist}| {this.props.album}</p>
+          <h3>{this.props.track.name}</h3>
+          <p>{this.props.track.artist}| {this.props.track.album}</p>
         </div>
         <button className="Track-action">{this.renderAction()}</button>
       </div>
