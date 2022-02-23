@@ -9,8 +9,8 @@ const Spotify = {
       headers: {
         Authorization: `Bearer ${accessToken}`
       }
-    }).then( response => {
-      return response.json
+    }).then(response => {
+      return response.json()
     }).then(jsonResponse => {
       if (!jsonResponse.tracks) {
         return [];
@@ -46,7 +46,7 @@ const Spotify = {
       window.location = accessUrl
     }
   },
-  savePlayList(name, trackURIs) {
+  savePlaylist(name, trackURIs) {
     if (!name || !trackURIs.length) {
       return
     }
@@ -72,4 +72,4 @@ const Spotify = {
   }
 }
 
-module.exports = Spotify
+export default Spotify
