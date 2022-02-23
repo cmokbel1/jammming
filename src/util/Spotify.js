@@ -1,6 +1,6 @@
 var accessToken
 const clientID = '7a8caf6b652d4cbda8eba6dbcd3a9f52'
-const redirectURI = "http://localhost:3000/"
+const redirectURI = "PlaylistBuilder_Spotify.surge.sh"
 
 const Spotify = {
   search(term) {
