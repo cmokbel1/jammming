@@ -5,6 +5,7 @@ import {SearchBar} from '../SearchBar/SearchBar';
 import {SearchResults} from '../SearchResults/SearchResults';
 import {Playlist} from '../Playlist/Playlist';
 import { TrackList } from '../TrackList/TrackList';
+import Spotify from '../../util/Spotify'
 
 class App extends React.Component {
   constructor(props) {
@@ -48,7 +49,9 @@ class App extends React.Component {
     const trackURIs = this.state.playlistTracks.map(track => track.URI)
   }
   search(term) {
-    console.log(term)
+    Spotify.search(term).then(searchResults => {
+      this.setState({searchResults: searchResults})
+    })
   }
 
   render() {
